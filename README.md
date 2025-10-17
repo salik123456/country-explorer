@@ -1,73 +1,45 @@
-# React + TypeScript + Vite
+A modern, responsive React app that allows users to explore countries, view details, and manage favorites — with a built-in dark/light theme toggle.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🧠 Design Decisions
 
-Currently, two official plugins are available:
+Simplicity & Clarity: Focused on clean UI and intuitive navigation over heavy styling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+State Management: Used Zustand for lightweight global state without boilerplate.
 
-## React Compiler
+Reusable Components: Country cards and navbar are modular and easy to extend.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Dark/Light Theme: Implemented using React Context to maintain global theme state.
 
-## Expanding the ESLint configuration
+API-Driven: Integrated REST Countries API and ReqRes API for real-world data simulation.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+⚙️ Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+React + TypeScript
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Tailwind CSS (v4) for responsive design
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Zustand for state management
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+React Router DOM for routing
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+React Toastify for feedback/notifications
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+REST Countries API for data
+
+ReqRes API for authentication mock
+
+
+🚀 Setup Instructions
+
+Clone the repo
+
+git clone https://github.com/salik123456/country-explorer
+
+Install dependencies
+
+npm install
+
+
+Start the app
+
+npm run dev
