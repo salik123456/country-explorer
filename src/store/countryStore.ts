@@ -40,7 +40,6 @@ export const useCountryStore = create<CountryStore>((set, get) => ({
     set({ loading: true, error: null });
     try {
       const data = await fetchAllCountries();
-      console.log("✅ Normalized countries sample:", data[0]);
       set({ countryList: data });
     } catch (err) {
       const message = err instanceof Error ? err.message : "Failed to load countries";

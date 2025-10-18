@@ -32,7 +32,6 @@ export const fetchCountryByName = async (name: string): Promise<Country[]> => {
 export const fetchCountryByCode = async (code: string): Promise<Country[]> => {
   const response = await apiClient.get(`${BASE}/alpha/${code}?fields=${FIELDS}`);
   const data = Array.isArray(response.data) ? response.data : [response.data];
-  console.log("📦 Fetched by code:", data);
   return data.map(normalizeCountry);
 };
 
