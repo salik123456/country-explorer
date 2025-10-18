@@ -71,7 +71,7 @@ const RegisterPage: React.FC = () => {
               required
               className={`w-full p-3 rounded-lg border transition focus:outline-none focus:ring-2 ${
                 theme === "dark"
-                  ? "bg-gray-700 border-gray-600 text-gray-100 placeholder-gray-400 focus:ring-pink-400"
+                  ? "bg-gray-700 border-gray-600 text-gray-100 placeholder-gray-400 focus:ring-indigo-400"
                   : "bg-white/10 text-white placeholder-gray-300 border-white/20 focus:ring-white/50"
               }`}
             />
@@ -89,7 +89,7 @@ const RegisterPage: React.FC = () => {
               required
               className={`w-full p-3 rounded-lg border transition focus:outline-none focus:ring-2 ${
                 theme === "dark"
-                  ? "bg-gray-700 border-gray-600 text-gray-100 placeholder-gray-400 focus:ring-pink-400"
+                  ? "bg-gray-700 border-gray-600 text-gray-100 placeholder-gray-400 focus:ring-indigo-400"
                   : "bg-white/10 text-white placeholder-gray-300 border-white/20 focus:ring-white/50"
               }`}
             />
@@ -100,8 +100,8 @@ const RegisterPage: React.FC = () => {
             disabled={loading}
             className={`w-full py-3 font-semibold rounded-lg transition duration-200 ${
               theme === "dark"
-                ? "bg-pink-500 hover:bg-pink-600 text-white"
-                : "bg-white text-pink-600 hover:bg-gray-100"
+                ? "bg-indigo-500 hover:bg-indigo-600 text-white"
+                : "bg-white text-indigo-600 hover:bg-gray-100"
             } disabled:opacity-60`}
           >
             {loading ? "Registering..." : "Register"}
@@ -118,7 +118,7 @@ const RegisterPage: React.FC = () => {
             to="/login"
             className={`font-semibold underline ${
               theme === "dark"
-                ? "text-pink-400 hover:text-pink-300"
+                ? "text-indigo-400 hover:text-indigo-300"
                 : "text-white hover:text-gray-100"
             }`}
           >
