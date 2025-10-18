@@ -29,6 +29,20 @@ REST Countries API for data
 ReqRes API for authentication mock
 
 
+
+🧩 Project Structure
+src/
+ ├── components/        # Reusable UI components (Navbar, CountryCard, etc.)
+ ├── pages/             # Route-based pages (Login, Register, CountryDetails)
+ ├── store/             # Zustand stores for Auth & Favorites
+ ├── context/           # Theme context for light/dark mode
+ ├── services/               # API client, countriesapi
+ └── App.tsx     
+
+
+
+
+
 🚀 Setup Instructions
 
 Clone the repo
@@ -43,3 +57,10 @@ npm install
 Start the app
 
 npm run dev
+
+
+
+🌐 Live Demo
+
+👉 View on Vercel
+https://country-explorers.vercel.app/
