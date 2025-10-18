@@ -7,7 +7,7 @@ type AuthState = {
   email: string | null;
   loading: boolean;
   error: string | null;
-  login: (email: string, password: string) => Promise<string>; // ✅ now returns token
+  login: (email: string, password: string) => Promise<string>; 
   register: (email: string, password: string) => Promise<string>
   logout: () => void;
 };
@@ -29,11 +29,11 @@ login: async (email, password) => {
     saveItem("token", data.token);
     saveItem("email", email);
     set({ token: data.token, email });
-    return data.token; // ✅ return token
+    return data.token; 
   } catch (err: any) {
     const msg = err.response?.data?.error || err.message || "Login failed";
     set({ error: msg });
-    throw err; // ✅ throw so the component catch works
+    throw err; 
   } finally {
     set({ loading: false });
   }
@@ -52,11 +52,11 @@ login: async (email, password) => {
     saveItem("email", email);
     set({ token: data.token, email });
 
-    return data.token; // ✅ return token for UI logic
+    return data.token; 
   } catch (err: any) {
     const msg = err.response?.data?.error || "Register failed";
     set({ error: msg });
-    throw err; // ✅ rethrow so the UI can handle toast
+    throw err; 
   } finally {
     set({ loading: false });
   }
