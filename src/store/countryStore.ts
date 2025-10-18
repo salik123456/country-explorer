@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { fetchAllCountries, fetchCountryByName } from "../services/countriesApi";
+import { fetchAllCountries, fetchCountryByName, fetchCountriesByRegion } from "../services/countriesApi";
 import { saveItem, getItem } from "../utils/storage";
 
 export type Country = {
@@ -21,7 +21,7 @@ export type CountryStore = {
   loading: boolean;
   error: string | null;
   favorites: string[];
-  loadCountries: () => Promise<void>;
+ loadCountries: (name?: string, region?: string) => Promise<void>;
   searchByName: (name: string) => Promise<void>;
   setPage: (page: number) => void;
   toggleFavorite: (code: string) => void;
@@ -36,18 +36,28 @@ export const useCountryStore = create<CountryStore>((set, get) => ({
   error: null,
   favorites: getItem("favorites") || [],
 
-  loadCountries: async () => {
-    set({ loading: true, error: null });
-    try {
-      const data = await fetchAllCountries();
-      set({ countryList: data });
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Failed to load countries";
-      set({ error: message });
-    } finally {
-      set({ loading: false });
+ loadCountries: async (name?: string, region?: string) => {
+  set({ loading: true, error: null });
+  try {
+    let data: Country[] = [];
+
+    if (name) {
+      data = await fetchCountryByName(name);
+    } else if (region) {
+      data = await fetchCountriesByRegion(region);
+    } else {
+      data = await fetchAllCountries();
     }
-  },
+
+    set({ countryList: data });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to load countries";
+    set({ error: message, countryList: [] });
+  } finally {
+    set({ loading: false });
+  }
+},
+
 
   searchByName: async (name) => {
     set({ loading: true, error: null });
